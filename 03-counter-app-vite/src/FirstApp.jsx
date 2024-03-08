@@ -21,7 +21,8 @@ export const FirstApp = (/* props */ { title, subTitle, name }) => {
       {/* <code>{JSON.stringify(newMessage)}</code> */}
       {/* <h1>{getResult(1, 5)}</h1> */}
       {/* <h1>{props.title}</h1> */}
-      <h1> {title} </h1>
+      <h1 data-testid="test-title"> {title} </h1>
+      <p>{subTitle}</p>
       <p>{subTitle}</p>
       <p>{name}</p>
     </>
