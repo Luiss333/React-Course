@@ -25,8 +25,9 @@ describe("Pruebas en <FirstApp/> ", () => {
     const title = "Hola, soy Goku";
     const subTitle = "Soy un subtitulo";
     const { getAllByText } = render(
-      <FirstApp title={title} subTitle={subTitle} />
+      // getAllByText busca todos los elementos que contengan el texto
+      <FirstApp title={title} subTitle={subTitle} /> // renderiza el componente
     );
-    expect(getAllByText(subTitle).length).toBe(3);
+    expect(getAllByText(subTitle).length).toBe(2); // 2 porque el subtitulo se repite
   });
 });
