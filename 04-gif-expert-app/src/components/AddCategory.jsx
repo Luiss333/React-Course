@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const AddCategory = ({ setCategories }) => {
+export const AddCategory = ({ onNewCategory }) => {
   const [inputValue, setInputValue] = useState("");
 
   const onInputChange = ({ target }) => {
@@ -8,10 +8,11 @@ export const AddCategory = ({ setCategories }) => {
   };
 
   const onSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault(); //evita que se recargue la página al enviar el formulario (comportamiento por defecto)
     // console.log(inputValue);
     if (inputValue.trim().length <= 1) return; //trim() elimina los espacios en blanco al inicio y al final
-    setCategories((categories) => [inputValue, ...categories]);
+    //setCategories((categories) => [inputValue, ...categories]);
+    onNewCategory(inputValue.trim());
     setInputValue("");
   };
 
