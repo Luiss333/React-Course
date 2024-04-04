@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-export const AddCategory = () => {
-  const [inputValue, setInputValue] = useState("One Punch");
+export const AddCategory = ({ setCategories }) => {
+  const [inputValue, setInputValue] = useState("");
 
   const onInputChange = ({ target }) => {
     setInputValue(target.value);
@@ -9,7 +9,10 @@ export const AddCategory = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log(inputValue);
+    // console.log(inputValue);
+    if (inputValue.trim().length <= 1) return; //trim() elimina los espacios en blanco al inicio y al final
+    setCategories((categories) => [inputValue, ...categories]);
+    setInputValue("");
   };
 
   return (
